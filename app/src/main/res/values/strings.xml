@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">blablawild</string>
+    <string name="boutonRechercher">RECHERCHER</string>
+    <string name="trajetAller">Trajet aller</string>
+    <string name="trajetRetour">Trajet retour</string>
+    <string name="date">Date du voyage</string>
+    <string name="choixAller"></string>
+    <string name="choixRetour"></string>
+    <string name="choixDate"></string>
+    <string name="boutonRechercher2">RECHERCHER</string>
+    <string name="toast">Renseigner le depart et la destination</string>
+    <string name="fleche">"--->"</string>
+</resources>
