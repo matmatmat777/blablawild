@@ -4,10 +4,13 @@
     <string name="trajetAller">Trajet aller</string>
     <string name="trajetRetour">Trajet retour</string>
     <string name="date">Date du voyage</string>
-    <string name="choixAller"></string>
-    <string name="choixRetour"></string>
-    <string name="choixDate"></string>
     <string name="boutonRechercher2">RECHERCHER</string>
     <string name="toast">Renseigner le depart et la destination</string>
     <string name="fleche">"--->"</string>
+    <string name="buttonPublier">PUBLIER</string>
+    <string name="depart">Départ</string>
+    <string name="Destination">Destination</string>
+    <string name="Prix">Prix</string>
+    <string name="Date">Date</string>
+    <string name="Heure">Heure</string>
 </resources>

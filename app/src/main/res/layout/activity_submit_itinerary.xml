@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.apprenti.blablawild.SubmitItineraryActivity">
+
+    <EditText
+        android:id="@+id/editTextDepart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="31dp"
+        android:layout_above="@+id/editTextDestination"
+        android:layout_alignLeft="@+id/editTextDestination"
+        android:layout_alignStart="@+id/editTextDestination"
+        android:layout_marginBottom="13dp" />
+
+    <EditText
+        android:id="@+id/editTextDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="99dp"
+        android:layout_above="@+id/editTextPrix"
+        android:layout_alignLeft="@+id/editTextPrix"
+        android:layout_alignStart="@+id/editTextPrix"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/editTextPrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="158dp"
+        android:layout_above="@+id/editTextDate"
+        android:layout_alignLeft="@+id/editTextDate"
+        android:layout_alignStart="@+id/editTextDate"
+        android:layout_marginBottom="40dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="233dp"
+        android:layout_above="@+id/editTextHeure"
+        android:layout_alignLeft="@+id/editTextHeure"
+        android:layout_alignStart="@+id/editTextHeure"
+        android:layout_marginBottom="46dp" />
+
+    <EditText
+        android:id="@+id/editTextHeure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="306dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_above="@+id/buttonPublier"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="53dp" />
+
+    <Button
+        android:id="@+id/buttonPublier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonPublier"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="395dp"
+        android:layout_marginBottom="57dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/editTextDepart"
+        android:layout_alignEnd="@+id/editTextDepart" />
+
+    <TextView
+        android:id="@+id/textViewDepart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextDepart"
+        android:layout_toLeftOf="@+id/buttonPublier"
+        android:layout_toStartOf="@+id/buttonPublier"
+        android:text="@string/depart" />
+
+    <TextView
+        android:id="@+id/textViewDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextDestination"
+        android:layout_alignLeft="@+id/textViewDepart"
+        android:layout_alignStart="@+id/textViewDepart"
+        android:text="@string/Destination" />
+
+    <TextView
+        android:id="@+id/textViewPrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextPrix"
+        android:layout_alignLeft="@+id/textViewDestination"
+        android:layout_alignStart="@+id/textViewDestination"
+        android:text="@string/Prix" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextDate"
+        android:layout_alignLeft="@+id/textViewPrix"
+        android:layout_alignStart="@+id/textViewPrix"
+        android:text="@string/Date" />
+
+    <TextView
+        android:id="@+id/textViewHeure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Heure"
+        android:layout_above="@+id/editTextHeure"
+        android:layout_alignLeft="@+id/textViewDate"
+        android:layout_alignStart="@+id/textViewDate" />
+</RelativeLayout>
