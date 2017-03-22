@@ -13,4 +13,5 @@
     <string name="Prix">Prix</string>
     <string name="Date">Date</string>
     <string name="Heure">Heure</string>
+    <string name="Proposer">Proposer un itinéraire</string>
 </resources>

@@ -1,63 +1,52 @@
 package com.example.apprenti.blablawild;
 
-import android.content.ClipData;
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.graphics.Color;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
+import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
+import static java.lang.String.valueOf;
 
-public class TripResultAdapter extends BaseAdapter {
-    private Context context; //context
-    private ArrayList<TripResultModel> items; //data source of the list adapter
+/**
 
-    //public constructor
-    public TripResultAdapter(Context context, ArrayList<TripResultModel> items) {
-        this.context = context;
-        this.items = items;
+ @author greg
+ @since 6/21/13 *
+ This class is an example of how to use FirebaseListAdapter. It uses the <code>ItineraryModel</code> class to encapsulate the
+
+ data for each individual chat message
+
+
+ */
+// nom de ma class qui hérite de la firelistadapter <no
+public class TripResultAdapter extends FirebaseListAdapter<ItineraryModel> {
+
+    // The mUsername for this client. We use this to indicate which messages originated from this user
+    private String mUsername;
+    private TextView TextViewDepartureTime;
+    private TextView TextViewFirstName;
+    private TextView TextViewPrice;
+
+    public TripResultAdapter(Query ref, Activity activity, int layout) {
+        super(ref, ItineraryModel.class, layout, activity);
+        this.mUsername = mUsername;
+
     }
 
     @Override
-    public int getCount() {
-        return items.size(); //returns total of items in the list
-    }
+    protected void populateView(View view, ItineraryModel model) {
 
-    @Override
-    public Object getItem(int position) {
-        return items.get(position); //returns list item at the specified position
-    }
+        TextViewDepartureTime = (TextView)view.findViewById(R.id.textViewDateDepart);
+        TextViewFirstName = (TextView)view.findViewById(R.id.TextViewNom);
+        TextViewPrice = (TextView)view.findViewById(R.id.textViewPrice);
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+        String firstName = model.getDriverFirstName();
+        String depart=model.getDepart();
+        TextViewDepartureTime.setText(depart);
+        TextViewFirstName.setText(firstName);
+        TextViewPrice.setText(Integer.toString(model.getPrix()));
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // inflate the layout for each list row
-        if (convertView == null) {
-            convertView = LayoutInflater.from(context).
-                    inflate(R.layout.trip_item, parent, false);
-        }
-
-        // get current item to be displayed
-        TripResultModel currentItem = (TripResultModel) getItem(position);
-
-        // get the TextView for item name and item description
-        TextView textViewItemDateDepart = (TextView)
-                convertView.findViewById(R.id.textViewDateDepart);
-        TextView textViewItemNom = (TextView)
-                convertView.findViewById(R.id.TextViewNom);
-        TextView textViewItemPrice = (TextView)
-                convertView.findViewById(R.id.textViewPrice);
-        //sets the text for item name and item description from the current item object
-        textViewItemDateDepart.setText(currentItem.getmDateDepart());
-        textViewItemNom.setText(currentItem.getmNom());
-        textViewItemPrice.setText(String.valueOf(currentItem.getmPrice()));
-        // returns the view for the current row
-        return convertView;
     }
 }
+
