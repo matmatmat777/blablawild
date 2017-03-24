@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">blablawild</string>
+    <string name="Date">Date</string>
+    <string name="Destination">Place</string>
+    <string name="Heure">Hour</string>
+    <string name="Prix">Price</string>
+    <string name="Proposer">Purpose an itinerary</string>
+    <string name="boutonRechercher">SEARCH</string>
+    <string name="boutonRechercher2">SEARCH</string>
+    <string name="buttonPublier">PUBLISH</string>
+    <string name="date">Trip\'s date</string>
+    <string name="depart">Departure</string>
+    <string name="fleche">\"-->\"</string>
+    <string name="toast">Fill departure and destination</string>
+    <string name="trajetAller">Outbound</string>
+    <string name="trajetRetour">Return</string>
+</resources>
