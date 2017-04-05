@@ -15,4 +15,5 @@
     <string name="toast">Fill departure and destination</string>
     <string name="trajetAller">Outbound</string>
     <string name="trajetRetour">Return</string>
+    <string name="disconnect">Disconnect</string>
 </resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.apprenti.blablawild.AccountActivity">
+
+    <ImageView
+        android:id="@+id/imageViewProfile"
+        android:layout_width="149dp"
+        android:layout_height="143dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="56dp"
+        android:layout_marginTop="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textViewDisplayName"
+        android:layout_width="368dp"
+        android:layout_height="40dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="235dp"
+        android:layout_below="@+id/imageViewProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="368dp"
+        android:layout_height="40dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="302dp"
+        android:layout_below="@+id/textViewDisplayName"
+        android:layout_alignLeft="@+id/textViewDisplayName"
+        android:layout_alignStart="@+id/textViewDisplayName"
+        android:layout_marginTop="17dp" />
+
+    <Button
+        android:id="@+id/buttonDisconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disconnect"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="367dp"
+        android:layout_marginTop="69dp"
+        android:layout_below="@+id/textViewEmail"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonDisconnect"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:text="@string/menu" />
+</RelativeLayout>

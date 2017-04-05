@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "946651693050",
+    "firebase_url": "https://blablawild-73bd2.firebaseio.com",
+    "project_id": "blablawild-73bd2",
+    "storage_bucket": "blablawild-73bd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946651693050:android:2ecec723be4cfd7b",
+        "android_client_info": {
+          "package_name": "com.example.apprenti.blablawild"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946651693050-a21npfbvabpnudqp2e7ukonotot6c0en.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.apprenti.blablawild",
+            "certificate_hash": "b982bd1ea3510baf0fdf84e868478d729f3a5cbe"
+          }
+        },
+        {
+          "client_id": "946651693050-vgj18nnah1krb772id9qc1kuab6en525.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkSJ2vX3jdg6MNSS3UrIdNXqYWgjTCRwY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946651693050-vgj18nnah1krb772id9qc1kuab6en525.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

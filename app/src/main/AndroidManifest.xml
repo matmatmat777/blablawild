@@ -16,7 +16,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchItineraryActivity" />
-        <activity android:name=".ViewSearchItineraryResultsListActivity"></activity>
+        <activity android:name=".ViewSearchItineraryResultsListActivity" />
+        <activity android:name=".SubmitItineraryActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".SigninActivity" />
+        <activity android:name=".Signup"></activity>
     </application>
 
 </manifest>

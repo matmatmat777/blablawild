@@ -14,9 +14,9 @@ public class SearchRequestModel implements Parcelable {
     private String mDateDepart;
 
 
-    public SearchRequestModel(String mDepart, String mArrivee, String mDateDepart) {
-        this.mDepart = mDepart;
-        this.mArrivee = mArrivee;
+    public SearchRequestModel(String depart, String arrivee, String mDateDepart) {
+        this.mDepart = depart;
+        this.mArrivee = arrivee;
         this.mDateDepart = mDateDepart;
     }
 

@@ -8,13 +8,16 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button button;
+    Button button3;
+    Button buttonCompte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button =(Button)findViewById(R.id.button);
-
+        button3 = (Button)findViewById(R.id.button3);
+        buttonCompte = (Button) findViewById(R.id.buttonCompte);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -22,8 +25,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentGoSearch);
             }
         });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentGoSubmit = new Intent(MainActivity.this ,SubmitItineraryActivity.class);
+                startActivity(intentGoSubmit);
+            }
+        });
+        buttonCompte.setOnClickListener(new View.OnClickListener() {
+            @Override
+             public void onClick(View v)  {
+                Intent intentGoAccount = new Intent(MainActivity.this,AccountActivity.class);
+                startActivity(intentGoAccount);
+        }
+    });
 
-    }
 
-
-}
+}}
