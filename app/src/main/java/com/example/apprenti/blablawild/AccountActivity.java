@@ -10,14 +10,20 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -32,6 +38,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseUser mFirebaseUser;
     private FirebaseAuth mAuth;
     private Button buttonMenu;
+    private StorageReference mStorageRef;
+
 
     /** Called when the activity is first created. */
     @Override
@@ -48,6 +56,9 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
+        //StorageReference usersPic = mStorageRef.child(firebaseAuth.getCurrentUser().getDisplayName()+"_avatar.jpg");
+        mStorageRef = FirebaseStorage.getInstance().getReference("profilePic").child(mAuth.getCurrentUser().getDisplayName());
+        //mStorageRef = mStorageRef.child(mAuth.getCurrentUser().getDisplayName()+"profilePic");
 
         if (user == null){
             finish();
@@ -55,6 +66,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             textViewDisplayName.setText(user.getDisplayName());
             textViewEmail.setText(user.getEmail());
+            downloadPhoto();
         }
 
 
@@ -79,12 +91,28 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
+            mStorageRef.putFile(selectedImage)
+
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AccountActivity.this,"fail",Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    downloadPhoto();
+                }
+            });
+
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
             Cursor cursor = getContentResolver().query(selectedImage,
@@ -133,4 +161,13 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         if (v == buttonMenu) {
             startActivity(new Intent(this, MainActivity.class));
         }
-    }}
+    }
+    public void downloadPhoto(){
+        mStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(AccountActivity.this).load(uri).into(imageViewProfile);
+            }
+        });
+    }
+}
