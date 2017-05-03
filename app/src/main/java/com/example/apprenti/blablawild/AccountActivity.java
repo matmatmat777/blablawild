@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,9 +57,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        //StorageReference usersPic = mStorageRef.child(firebaseAuth.getCurrentUser().getDisplayName()+"_avatar.jpg");
-        mStorageRef = FirebaseStorage.getInstance().getReference("profilePic").child(mAuth.getCurrentUser().getDisplayName());
-        //mStorageRef = mStorageRef.child(mAuth.getCurrentUser().getDisplayName()+"profilePic");
+
 
         if (user == null){
             finish();
@@ -66,6 +65,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             textViewDisplayName.setText(user.getDisplayName());
             textViewEmail.setText(user.getEmail());
+            mStorageRef = FirebaseStorage.getInstance().getReference("profilePic").child(user.getUid());
+
             downloadPhoto();
         }
 
@@ -166,7 +167,9 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         mStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Glide.with(AccountActivity.this).load(uri).into(imageViewProfile);
+                Glide.with(AccountActivity.this).using(new FirebaseImageLoader()).load(mStorageRef).into(imageViewProfile);
+
+
             }
         });
     }
