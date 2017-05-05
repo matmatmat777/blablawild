@@ -68,12 +68,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
+        android:focusable="false"
         android:ems="10"
         android:layout_below="@+id/textView3"
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignStart="@+id/textView3"
         android:layout_marginTop="37dp"
-        android:id="@+id/editText3" />
+        android:id="@+id/editTextDate" />
 
     <Button
         android:text="@string/boutonRechercher2"
@@ -86,4 +87,6 @@
         android:layout_marginStart="26dp"
         android:layout_marginBottom="30dp"
         android:id="@+id/button2" />
+
+
 </RelativeLayout>
